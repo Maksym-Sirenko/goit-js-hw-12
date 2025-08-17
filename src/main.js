@@ -90,7 +90,11 @@ refs.loadMoreBtn.addEventListener('click', async () => {
       hideLoadMoreButton();
     }
   } catch (error) {
-    console.log(error.message);
+    console.log('Load more error:', error);
+    iziToast.error({
+      message: 'Something went wrong while loading more images. Check console.',
+      position: 'topRight',
+    });
   } finally {
     hideLoader();
   }
