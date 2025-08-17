@@ -7,7 +7,7 @@ let galleryLightBox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
-export function createGallery(images) {
+export const createGallery = images => {
   const markup = images
     .map(
       ({
@@ -28,7 +28,6 @@ export function createGallery(images) {
                 class="gallery-image"
                 src="${webformatURL}"
                 alt="${tags}"
-                loading="lazy"
               />
 
               <ul class="img-info">
@@ -52,12 +51,12 @@ export function createGallery(images) {
             </a>
           </li>`
     )
-    .join('');
+    .join('\n');
 
-  refs.gallery.innerHTML = markup;
+  refs.gallery.insertAdjacentHTML('beforeend', markup);
 
   galleryLightBox.refresh();
-}
+};
 
 export const showLoader = () => {
   refs.loader.classList.remove('hidden');
@@ -70,3 +69,11 @@ export const hideLoader = () => {
 export const clearGallery = () => {
   refs.gallery.innerHTML = '';
 };
+
+export function showLoadMoreButton() {
+  refs.loadMoreBtn.classList.remove('hidden');
+}
+
+export function hideLoadMoreButton() {
+  refs.loadMoreBtn.classList.add('hidden');
+}

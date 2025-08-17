@@ -63,8 +63,9 @@
 }
 
 .gallery>li img {
+    width: 100%;
     height: 200px;
-    width: 360px;
+    object-fit: cover;
 }
 
 .gallery>li:hover {
@@ -206,4 +207,26 @@
 .card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+.load-btn {
+    display: block;
+    margin: 32px auto;
+    padding: 10px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    background-color: #4e75ff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 250ms ease;
+}
+
+.load-btn:hover {
+    background-color: #6c8cff;
+}
+
+.load-btn.hidden {
+    display: none;
 }
